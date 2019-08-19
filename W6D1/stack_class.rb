@@ -13,7 +13,7 @@ class Stack
     end
 
     def peek
-       return @stack.first
+       return @stack.last
 
     end
 
