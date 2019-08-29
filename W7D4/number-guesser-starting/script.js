@@ -10,12 +10,14 @@ const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 }
 
+const getAbsoluteDistance = (num1, num2) => {
+    return Math.abs(num1 - num2);
+}
+
 const compareGuesses = (humanGuessInput, computerGuessDisplay, target) => {
-    human = Math.abs(humanGuessInput - target);
-    computer = Math.abs(computerGuessDisplay - target);
-    if (human === computer || human < computer) {
-        return true;
-    } else return false;
+    human = getAbsoluteDistance(humanGuessInput, target);
+    computer = getAbsoluteDistance(computerGuessDisplay, target);
+    return human <= computer;
 }
 
 const updateScore = (winner) => {
@@ -23,6 +25,5 @@ const updateScore = (winner) => {
     } else (computerScore ++);
 }
 
-const advanceRound = () => {
-    currentRoundNumber ++;
+const advanceRound = () => currentRoundNumber ++;
 }
